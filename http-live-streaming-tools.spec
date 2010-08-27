@@ -9,7 +9,7 @@ Source0:	%{name}.tar.bz2
 URL:		http://www.ioncannon.net/projects/http-live-video-stream-segmenter-and-distributor/
 Patch0:		makefile.patch
 BuildRequires:	bzip2-devel
-BuildRequires:	ffmpeg-devel
+BuildRequires:	ffmpeg-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.484
 Requires:	ruby
 Requires:	ruby-modules
