@@ -1,5 +1,16 @@
---- http-live-streaming-tools/Makefile	2010-08-30 10:27:02.367948681 +0300
-+++ http-live-streaming-tools/Makefile	2010-08-30 10:29:49.374933976 +0300
+From dc51fa2ba280fae23f0b2cb084ccb8d4ac02fa47 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Elan=20Ruusam=C3=A4e?= <glen@pld-linux.org>
+Date: Mon, 30 Aug 2010 10:32:22 +0300
+Subject: [PATCH] - improve makefile so we're able to use our cc/cflags/ldflags
+
+---
+ Makefile |   12 ++++++++++--
+ 1 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 9ef722f..ade7508 100644
+--- a/Makefile
++++ b/Makefile
 @@ -1,5 +1,13 @@
 -all:
 -	gcc -Wall -g live_segmenter.c -o live_segmenter -lavformat -lavcodec -lavutil -lbz2 -lm -lz -lfaac -lmp3lame -lx264 -lfaad -lpthread
@@ -16,3 +27,6 @@
  
  clean:
  	rm -f live_segmenter
+-- 
+1.7.2.2
+
