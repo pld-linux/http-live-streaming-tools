@@ -1,11 +1,14 @@
---- http-live-streaming-tools/Makefile~	2010-08-23 15:45:40.000000000 +0300
-+++ http-live-streaming-tools/Makefile	2010-08-23 15:52:12.243937112 +0300
-@@ -1,5 +1,8 @@
+--- http-live-streaming-tools/Makefile	2010-08-23 15:52:12.243937112 +0300
++++ http-live-streaming-tools/Makefile	2010-08-30 10:27:02.367948681 +0300
+@@ -1,5 +1,10 @@
+-all:
+-	gcc -Wall -g live_segmenter.c -o live_segmenter -lavformat -lavcodec -lavutil -lbz2 -lm -lz -lfaac -lmp3lame -lx264 -lfaad -lpthread
 +CC := gcc
 +CFLAGS := -g
 +
- all:
--	gcc -Wall -g live_segmenter.c -o live_segmenter -lavformat -lavcodec -lavutil -lbz2 -lm -lz -lfaac -lmp3lame -lx264 -lfaad -lpthread
++all: live_segmenter
++
++live_segmenter:
 +	$(CC) -Wall $(CFLAGS) live_segmenter.c -o live_segmenter $(LDFLAGS) -lavformat -lavcodec -lavutil -lbz2 -lm -lz -lfaac -lmp3lame -lx264 -lfaad -lpthread
  
  clean:
