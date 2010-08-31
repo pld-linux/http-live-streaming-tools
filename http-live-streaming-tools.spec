@@ -1,7 +1,7 @@
 Summary:	HTTP Live Video Stream Segmenter and Distributor
 Name:		http-live-streaming-tools
 Version:	0.1
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	%{name}.tar.bz2
@@ -11,6 +11,7 @@ Patch0:		makefile.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	ffmpeg-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.484
+Requires:	http-live-segmenter = %{version}-%{release}
 Requires:	ruby
 Requires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
@@ -22,6 +23,13 @@ streaming server using Apple's HTTP Live Streaming protocol. The
 source includes a Ruby script and a C program that use FFMpeg to
 encode and segment an input video stream in the correct format for use
 with the HTTP streaming protocol.
+
+%package -n http-live-segmenter
+Summary:	HTTP Live Video Stream Segmenter
+Group:		Applications
+
+%description -n http-live-segmenter
+HTTP Live Video Stream Segmenter.
 
 %prep
 %setup -q -n %{name}
@@ -49,4 +57,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hs_encoder.rb
 %attr(755,root,root) %{_bindir}/hs_transfer.rb
 %attr(755,root,root) %{_bindir}/http_streamer.rb
+%attr(755,root,root) %{_bindir}/live_segmenter
+
+%files -n http-live-segmenter
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/live_segmenter
