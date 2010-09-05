@@ -1,0 +1,23 @@
+--- http-live-streaming-tools/live_segmenter.c~	2010-08-23 16:01:30.000000000 +0300
++++ http-live-streaming-tools/live_segmenter.c	2010-09-03 18:16:09.899783952 +0300
+@@ -111,9 +111,9 @@
+ 
+ int main(int argc, char **argv)
+ {
+-  if(argc != 5)
++  if(argc != 5 && argc != 6)
+   {
+-    fprintf(stderr, "Usage: %s <segment length> <output location> <filename prefix> <encoding profile>\n", argv[0]);
++    fprintf(stderr, "Usage: %s <segment length> <output location> <filename prefix> <encoding profile> [<filename>]\n", argv[0]);
+     return 1;
+   }
+ 
+@@ -125,7 +125,7 @@
+   config.temp_directory = argv[2];
+   config.filename_prefix = argv[3];
+   config.encoding_profile = argv[4];
+-  config.input_filename = "pipe://1";
++  config.input_filename = argc == 6 ? argv[5] : "pipe://1";
+ 
+   char *output_filename = malloc(sizeof(char) * (strlen(config.temp_directory) + 1 + strlen(config.filename_prefix) + 10));
+   if (!output_filename) 

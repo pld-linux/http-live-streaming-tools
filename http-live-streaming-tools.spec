@@ -1,13 +1,14 @@
 Summary:	HTTP Live Video Stream Segmenter and Distributor
 Name:		http-live-streaming-tools
 Version:	0.1
-Release:	0.2
+Release:	1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	%{name}.tar.bz2
 # Source0-md5:	90731a7168cd9393cc4c6e3704b75f11
 URL:		http://www.ioncannon.net/projects/http-live-video-stream-segmenter-and-distributor/
 Patch0:		makefile.patch
+Patch1:		input_filename.patch
 BuildRequires:	bzip2-devel
 BuildRequires:	ffmpeg-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.484
@@ -34,6 +35,7 @@ HTTP Live Video Stream Segmenter.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
