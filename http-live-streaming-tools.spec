@@ -1,7 +1,7 @@
 Summary:	HTTP Live Video Stream Segmenter and Distributor
 Name:		http-live-streaming-tools
 Version:	0.1
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	%{name}.tar.bz2
